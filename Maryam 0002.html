@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوتنامه عروسی</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #121212 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            font-family: 'Lalezar', cursive;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        .creator-name {
+            font-size: 1.1em;
+            color: #d4af37; /* طلایی روشن */
+            margin-bottom: 1em;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+        .main-text {
+            font-size: 1.1em;
+            line-height: 1.5em;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+            position: relative;
+            z-index: 2;
+            background: rgba(30, 30, 30, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        .countdown-title {
+            font-family: 'Lalezar', cursive;
+            font-size: 1.1em;
+            color: #d4af37;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+        #countdown {
+            font-size: 1.1em;
+            color: #d4af37;
+            margin-top: 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+        .video-container {
+            position: relative;
+            width: 95%;
+            max-width: 900px;
+            margin: 20px auto;
+            z-index: 2;
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+        iframe {
+            width: 100%;
+            height: 750px;
+            border: none;
+            border-radius: 10px;
+        }
+        .fullscreen-note {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* افکت ستاره‌های درخشان */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 1px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 1px);
+            background-size: 30px 30px, 60px 60px;
+            background-position: 0 0, 0 0;
+            animation: stars 60s linear infinite;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        @keyframes stars {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 1000px 1000px, 600px 600px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="creator-name">به نام خالق عشق</div>
+    
+    <div class="main-text">
+        با هر لحظه‌ای که به هم نزدیک‌تر می‌شویم، زندگی‌مان رنگ دیگری می‌گیرد. در این لحظات پر از عشق و امید، می‌خواهیم برای همیشه کنار هم باشیم و این پیوند ابدی را جشن بگیریم.
+        در این شب خاص که داستان جدید زندگی‌مان آغاز می‌شود، حضور شما عزیزان بهترین هدیه‌ای است که می‌توانیم دریافت کنیم.
+        دعوتتان می‌کنیم تا در کنار ما، این لحظات بی‌نظیر را به یک یادگاری فراموش‌ نشدنی تبدیل کنیم .!.
+    </div>
+
+    <div class="countdown-title">مانده تا شب پیوند عشقمان:</div>
+    <div id="countdown"></div>
+
+    <div class="video-container">
+        <div id="42710713694"><script type="text/JavaScript" src="https://www.aparat.com/embed/sdkk9oq?data[rnddiv]=42710713694&data[responsive]=yes&autoplay=true"></script></div>
+        <div class="fullscreen-note">برای نمایش تمام صفحه ویدئو، روی مربع بزنید.</div>
+    </div>
+
+    <script>
+        function toPersianNumber(n) {
+            const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+            return n.toString().replace(/[0-9]/g, x => persianDigits[x]);
+        }
+
+        var countDownDate = new Date("2025-05-01T19:30:00").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                toPersianNumber(days) + " روز " + toPersianNumber(hours) + " ساعت "
+                + toPersianNumber(minutes) + " دقیقه " + toPersianNumber(seconds) + " ثانیه ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "مراسم آغاز شد!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
